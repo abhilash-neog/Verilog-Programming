@@ -40,31 +40,29 @@ fadder df3(s[3],c3, x[3],y[3],c2);
 fadder df4(s[4],c4, x[4],y[4],c3);
 fadder df5(s[5],c5, x[5],y[5],c4);
 fadder df6(s[6],c6, x[6],y[6],c5);
-fadder df7(s[7],cout, x[7],y[7],c6);
-
-assign cx = cout;
+fadder df7(s[7],cx, x[7],y[7],c6);
    
 endmodule
 
 module adderL(s,cx,x,y,z); 
 input [31:0] x,y;
 input z;
-output [32:0] s;
+output [31:0] s;
 output cx;
 //wire cout;
 adder df(s[7:0],c, x[7:0],y[7:0],z);
 adder df1(s[15:8],c1, x[15:8],y[15:8],c);
 adder df2(s[23:16],c2, x[23:16],y[23:16],c1);
-adder df3(s[31:24],c3, x[31:24],y[31:24],c2);
+adder df3(s[31:24],cx, x[31:24],y[31:24],c2);
 
-assign cx = s[32];
+//assign cx = s[32];
    
 endmodule
 
 module testbench;     
 reg [31:0] x,y;
 reg z;     
-wire [32:0]s;
+wire [31:0]s;
 wire c;     
 adderL ad(s,c,x,y,z);  
 initial
