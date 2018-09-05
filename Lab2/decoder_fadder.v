@@ -69,3 +69,5 @@ begin
 	#8 y = y + 8'b00000011;//8s of delay from starting //0th s
 end 
 endmodule 
+/*initial blocks start at t=0;i.e. any statement within
+initial block starts exe at t=0s. if there are multiple initial blocks, all concurrently starts at 0s. begin and end group statements if there are moe than 1, i.e. {}*/
