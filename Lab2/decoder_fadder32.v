@@ -30,7 +30,7 @@ endmodule
 module adder(s,cx,x,y,z); 
 input [7:0] x,y;
 input z;
-output [8:0] s;
+output [7:0] s;
 output cx;
 //wire cout;
 fadder df(s[0],c, x[0],y[0],z);
@@ -40,32 +40,47 @@ fadder df3(s[3],c3, x[3],y[3],c2);
 fadder df4(s[4],c4, x[4],y[4],c3);
 fadder df5(s[5],c5, x[5],y[5],c4);
 fadder df6(s[6],c6, x[6],y[6],c5);
-fadder df7(s[7],s[8], x[7],y[7],c6);
+fadder df7(s[7],cout, x[7],y[7],c6);
 
-assign cx = s[8];
+assign cx = cout;
+   
+endmodule
+
+module adderL(s,cx,x,y,z); 
+input [31:0] x,y;
+input z;
+output [32:0] s;
+output cx;
+//wire cout;
+adder df(s[7:0],c, x[7:0],y[7:0],z);
+adder df1(s[15:8],c1, x[15:8],y[15:8],c);
+adder df2(s[23:16],c2, x[23:16],y[23:16],c1);
+adder df3(s[31:24],c3, x[31:24],y[31:24],c2);
+
+assign cx = s[32];
    
 endmodule
 
 module testbench;     
-reg [7:0] x,y;
+reg [31:0] x,y;
 reg z;     
-wire [8:0]s;
+wire [32:0]s;
 wire c;     
-adder ad(s,c,x,y,z);  
+adderL ad(s,c,x,y,z);  
 initial
 begin
-$dumpfile("8bit.vcd");
+$dumpfile("32bit.vcd");
 $dumpvars();
 end   
 initial        
 $monitor(,$time,"x=%8b,y=%8b,z=%b,s=%8b,c=%b",x,y,z,s,c);     
 initial        
 begin        
-    #0 x =  8'b00000000;
-	#0 y =  8'b00000001;
+    #0 x =  32'b00000000000000000000000000000000;
+	#0 y =  32'b00000000000000000000000000000001;
 	#0 z =  1'b0;
 	repeat(8)/*repeat the loop 8 times*/
-	#8 x = x + 8'b00000001;
-	#8 y = y + 8'b00000011;
+	#8 x = x + 32'b00000000000000000000000000000001;
+	#8 y = y + 32'b00000000000000000000000000000011;
 end 
 endmodule 
