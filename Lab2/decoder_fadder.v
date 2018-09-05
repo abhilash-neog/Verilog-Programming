@@ -61,11 +61,11 @@ initial
 $monitor(,$time,"x=%8b,y=%8b,z=%b,s=%8b,c=%b",x,y,z,s,c);     
 initial        
 begin        
-    #0 x =  8'b00000000;
+    #0 x =  8'b00000000;//#<delay>;
 	#0 y =  8'b00000001;
 	#0 z =  1'b0;
 	repeat(8)/*repeat the loop 8 times*/
 	#8 x = x + 8'b00000001;
-	#8 y = y + 8'b00000011;
+	#8 y = y + 8'b00000011;//8s of delay from starting //0th s
 end 
 endmodule 

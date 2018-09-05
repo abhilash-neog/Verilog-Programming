@@ -74,7 +74,7 @@ initial
 $monitor(,$time,"x=%8b,y=%8b,z=%b,s=%8b,c=%b",x,y,z,s,c);     
 initial        
 begin        
-    #0 x =  32'b00000000000000000000000000000000;
+    #0 x =  32'b00000000000000000000000000000000;//#0 represents delay
 	#0 y =  32'b00000000000000000000000000000001;
 	#0 z =  1'b0;
 	repeat(8)/*repeat the loop 8 times*/
