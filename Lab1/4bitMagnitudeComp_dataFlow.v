@@ -34,7 +34,7 @@ end
 
 initial
 begin
-$dumpfile("4bitmagnitude.vcd");
+$dumpfile("4bitmagnitudeDF.vcd");
 $dumpvars();
 end
 
