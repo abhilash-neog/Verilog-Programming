@@ -14,7 +14,7 @@ agtb=1;
 else
 altb=1;
 end
-end module
+endmodule
 
 module testbench;
 reg [3:0]a,b;
