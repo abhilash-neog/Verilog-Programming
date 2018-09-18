@@ -1,5 +1,5 @@
 $date
-	Wed Sep 19 00:04:37 2018
+	Wed Sep 19 00:17:52 2018
 $end
 $version
 	Icarus Verilog
@@ -15,10 +15,10 @@ $var reg 4 $ a [3:0] $end
 $var reg 4 % b [3:0] $end
 $scope module c $end
 $var wire 4 & a [3:0] $end
+$var wire 1 # aeqb $end
+$var wire 1 " agtb $end
+$var wire 1 ! altb $end
 $var wire 4 ' b [3:0] $end
-$var reg 1 # aeqb $end
-$var reg 1 " agtb $end
-$var reg 1 ! altb $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
@@ -35,38 +35,33 @@ $end
 #5
 1"
 0!
+0#
 b101 $
 b101 &
 #10
-1"
 b1010 $
 b1010 &
 #15
-1"
 b1111 $
 b1111 &
 #20
-1"
 b100 $
 b100 &
 #25
-1"
 b1001 $
 b1001 &
 #30
-1"
 b1110 $
 b1110 &
 #35
-1"
 b11 $
 b11 &
 #40
-1"
+0!
 b1000 $
 b1000 &
 #45
-1!
 0"
+1!
 b1001 %
 b1001 '
