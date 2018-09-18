@@ -1,4 +1,4 @@
-module mux2to1_gate(a[3:0],f[3:0]);
+module bcdgray(a[3:0],f[3:0]);
  input [3:0]a;
  output [3:0]f;
  assign f[3] = a[3];
@@ -13,7 +13,7 @@ endmodule
 module testbench; 
 reg [3:0]a; /*using loop*/
 wire [3:0]f; 
-mux2to1_gate mux_gate (a[3:0],f[3:0]); 
+bcdgray bcg (a[3:0],f[3:0]); 
 initial
 begin
 	$monitor(,$time," a=%4b f=%4b",a,f);
