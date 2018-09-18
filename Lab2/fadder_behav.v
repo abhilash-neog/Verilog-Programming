@@ -24,3 +24,31 @@ end
 end
 endmodule
 
+module testbench;
+reg [3:0]a,b;
+wire [3:0]s;
+reg z;
+wire c;
+fadder_behav fb(a,b,z,s,c);
+
+initial
+begin
+$dumpfile("fadderBehavioral.vcd");
+$dumpvars();
+end
+
+initial
+$monitor(,$time,"a=%4b,b=%4b,z=%b,s=%4b,c=%b",a,b,z,s,c);
+initial        
+begin        
+    #0 x =  32'b00000000000000000000000000000000;//#0 represents delay
+	#0 y =  32'b00000000000000000000000000000001;
+	#0 z =  1'b0;
+	repeat(8)/*repeat the loop 8 times*/
+	#8 x = x + 32'b00000000000000000000000000000001;
+	#8 y = y + 32'b00000000000000000000000000000011;
+end 
+endmodule
+
+
+
