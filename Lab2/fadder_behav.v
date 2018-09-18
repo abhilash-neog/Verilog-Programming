@@ -1,4 +1,4 @@
-module fadder_behav(a,b,cin,s,cout);
+/*module fadder_behav(a,b,cin,s,cout);
 input [3:0] a, b;
 input cin;
 output reg temp;
@@ -19,7 +19,40 @@ temp = temp2||(temp1 & temp);
 
 if(i==3) 
 begin
-cout = cin;
+cout = temp;
+end
+end
+endmodule*/
+
+module add(a,b,cin,sum,cout);
+input a,b,cin;
+output reg sum,cout;
+
+always@(*) begin
+
+{cout,sum}=a+b+cin;
+
+end
+endmodule
+
+module fadder_behav(a,b,cin,sum,cout);
+input [3:0] a,b;
+output [3:0] sum;
+output cout;
+input cin;
+reg temp;
+
+initial
+begin
+temp = cin;
+end
+integer i;
+always@(*)
+begin
+for(i=0;i<=3;i++)
+begin
+add ad(a[i],b[i],temp,sum[i],cout);//ERROR??
+temp = cout;
 end
 end
 endmodule
