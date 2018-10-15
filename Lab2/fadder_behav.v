@@ -23,45 +23,27 @@ cout = temp;
 end
 end
 endmodule*/
+/////////////////////////////////////////////
 
-module add(a,b,cin,sum,cout);
-input a,b,cin;
-output reg sum,cout;
+module fadder_behav(a,b,cin,sum,cout);
+input [3:0]a,b;
+input cin;
+output [3:0]sum;
+output cout;
 
 always@(*) begin
 
-{cout,sum}=a+b+cin;
+assign {cout,sum}=a+b+cin;
 
 end
 endmodule
 
-module fadder_behav(a,b,cin,sum,cout);
-input [3:0] a,b;
-output [3:0] sum;
-output cout;
-input cin;
-reg temp;
-
-initial
-begin
-temp = cin;
-end
-integer i;
-always@(*)
-begin
-for(i=0;i<=3;i++)
-begin
-add ad(a[i],b[i],temp,sum[i],cout);//ERROR??
-temp = cout;
-end
-end
-endmodule
 
 module testbench;
 reg [3:0]a,b;
-wire [3:0]s;
+reg [3:0]s;
 reg z;
-wire c;
+reg c;
 fadder_behav fb(a,b,z,s,c);
 
 initial
