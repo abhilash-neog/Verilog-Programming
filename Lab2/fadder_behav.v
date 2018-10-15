@@ -40,12 +40,12 @@ always@(*) begin
 end
 endmodule
 
-/*
+
 module testbench;
 reg [3:0]a,b;
-reg [3:0]s;
+wire [3:0]s;
 reg z;
-reg c;
+wire c;
 fadder_behav fb(a,b,z,s,c);
 
 initial
@@ -66,6 +66,6 @@ begin
 	#8 b = b + 4'b0100;
 end 
 endmodule
-*/
+
 
 
