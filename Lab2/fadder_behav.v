@@ -43,7 +43,7 @@ endmodule
 
 module testbench;
 reg [3:0]a,b;
-wire [3:0]s;
+wire [3:0]s;//reg s cannot be driven by continuous assign.
 reg z;
 wire c;
 fadder_behav fb(a,b,z,s,c);
@@ -55,7 +55,7 @@ $dumpvars();
 end
 
 initial
-$monitor(,$time,"a=%4b,b=%4b,z=%b,s=%4b,c=%b",a,b,z,s,c);
+$monitor(,$time ,"a=%4b,b=%4b,z=%b,s=%4b,c=%b",a,b,z,s,c);
 initial        
 begin        
     #0 a =  4'b0001;// represents delay
