@@ -26,11 +26,12 @@ endmodule*/
 /////////////////////////////////////////////
 
 module fadder_behav(a,b,cin,sum,cout);
-input a,b;
+input [3:0]a,b;
 input cin;
-output sum;
+output [3:0]sum;
 output cout;
-//reg z;
+reg sum;//need to define a reg for lvalue, sum and cout.else error
+reg cout;
 
 always@(*) begin
 
