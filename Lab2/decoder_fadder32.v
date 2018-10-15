@@ -71,7 +71,7 @@ $dumpfile("32bit.vcd");
 $dumpvars();
 end   
 initial        
-$monitor(,$time,"x=%8b,y=%8b,z=%b,s=%8b,c=%b",x,y,z,s,c);     
+$monitor(,$time,"x=%32b,y=%32b,z=%b,s=%32b,c=%b",x,y,z,s,c);     
 initial        
 begin        
     #0 x =  32'b00000000000000000000000000000000;//#0 represents delay
