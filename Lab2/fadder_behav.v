@@ -26,19 +26,20 @@ endmodule*/
 /////////////////////////////////////////////
 
 module fadder_behav(a,b,cin,sum,cout);
-input [3:0]a,b;
+input a,b;
 input cin;
-output [3:0]sum;
+output sum;
 output cout;
+//reg z;
 
 always@(*) begin
 
-assign {cout,sum}=a+b+cin;
+{cout,sum}=a+b+cin;
 
 end
 endmodule
 
-
+/*
 module testbench;
 reg [3:0]a,b;
 reg [3:0]s;
@@ -59,11 +60,11 @@ begin
     #0 a =  4'b0001;// represents delay
 	#0 b =  4'b0010;
 	#0 z =  1'b0;
-	repeat(8)/*repeat the loop 8 times*/
+	repeat(8)//repeat the loop 8 times
 	#8 a = a + 4'b0001;
 	#8 b = b + 4'b0100;
 end 
 endmodule
-
+*/
 
 
