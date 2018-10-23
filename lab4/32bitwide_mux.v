@@ -51,7 +51,7 @@ wire [31:0] out;
 bit32_2to1mux M1(out,SEL,INP1,INP2);   
 initial
 begin
-$monitor(,$time,"in1 = %32b  in2=%32b  out=%32b \n sel=%b",INP1,INP2,out,SEL);
+$monitor(,$time,"in1 = %b  in2=%b  out=%b \n sel=%b",INP1,INP2,out,SEL);
 end   
 initial
 begin     
