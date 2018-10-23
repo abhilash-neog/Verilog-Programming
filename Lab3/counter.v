@@ -4,7 +4,7 @@ input EN;
 input in1;
 input in2;
 input CLK; 
-output Q; 
+output Q[3]; 
 reg [n-1:0] Q;
 initial Q=4'd10; 
 always @(posedge CLK) 

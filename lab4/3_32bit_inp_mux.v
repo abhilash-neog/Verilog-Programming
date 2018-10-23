@@ -1,4 +1,4 @@
-module mux2to1(out,sel1,sel2,in1,in2,in3,in4);   
+module mux4to1(out,sel1,sel2,in1,in2,in3,in4);   
 input in1,in2,in3,in4,sel1,sel2;   
 output out;   
 wire ns1,ns2;  

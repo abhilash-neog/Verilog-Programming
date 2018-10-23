@@ -48,8 +48,8 @@ $monitor(,$time,"in1 = %8b  in2=%8b  out=%8b \n sel=%b",INP1,INP2,out,SEL);
 end   
 initial
 begin     
-INP1=32'b10101010101010101010101010101010;     
-INP2=32'b01010101010101010101010101010101;     
+INP1=32'd1000;     
+INP2=32'd25000;     
 SEL=1'b0;     
 #100 SEL=1'b1;     
 #1000 $finish;   
