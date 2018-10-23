@@ -100,14 +100,18 @@ input Binvert,Carryin;
 input [1:0]Operation;
 output [31:0] Result;
 output CarryOut;
-wire nb;
-not(nb,b);
+wire [31:0] nb;
+genvar i;
+generate for(i=0;i<32;i=i+1) begin:not_loop
+not n1(nb[i],b[i]);
+end
+endgenerate
 wire [31:0] out2to1;
 wire [31:0] sum;
 wire [31:0] outand;
 wire [31:0] outor;
 
-bit32_2to1mux m1(out2to1,sel1,Binvert,nb);
+bit32_2to1mux m1(out2to1,Binvert,b,nb);
 FA_dataflow fl(CarryOut,sum,a,out2to1,Carryin);
 
 bit32AND and1(outand,a,out2to1);
@@ -126,7 +130,7 @@ wire CarryOut;
 ALU al(a,b,Binvert,Carryin,Operation,Result,CarryOut);
 initial
 begin
-$monitor(,$time,"a1 = %32b b1=%32b Binv=%b Op=%b res=%32b cout=%b",a,b,Binvert,Carryin,Operation,Result,CarryOut);
+$monitor(,$time,"a1 = %32b b1=%32b Binv=%b Op=%8b res=%b cout=%b",a,b,Binvert,Carryin,Operation,Result,CarryOut);
 end
 initial
 begin
