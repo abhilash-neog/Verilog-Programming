@@ -20,7 +20,7 @@ input sel1,sel2;
 genvar j;  //this is the variable that is be used in the generate //block. Don't use integer;   
 generate  for (j=0; j<8;j=j+1) begin: mux_loop  
 //mux_loop is the name of the loop   
-mux2to1 m1(out[j],sel1, sel2,in1[j],in2[j],in3[j],in4[j]);   
+mux4to1 m1(out[j],sel1, sel2,in1[j],in2[j],in3[j],in4[j]);   
 //mux2to1 is instantiated every time it is called . generate can't be written inside an always block
 
 end 
