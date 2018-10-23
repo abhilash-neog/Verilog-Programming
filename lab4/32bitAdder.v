@@ -15,14 +15,14 @@ FA_dataflow f1(cout,sum,in1,in2,cin);
 
 initial
 begin
-$monitor(,$time,"in1 = %32b  in2=%32b out=%32b cin=%b cout = %b",in1,in2,sum,cin,cout);
+$monitor(,$time,"in1 = %b  in2=%b out=%b cin=%b cout = %b",in1,in2,sum,cin,cout);
 #0  in1 = 32'd1;//decimal 1
 	in2 = 32'd3;
-	cin = 1'b1;
-#10 in1 = in1+32'b01;
-	in2 = in2+32'b11;
-#10 in1= in1+32'b10;
-	in2= in2+32'b11;
+	cin = 1'b0;
+#10 in1 = in1+32'd9;
+	in2 = in2+32'd9;
+#10 in1= in1+32'd2;
+	in2= in2+32'd2;
 end
 
 endmodule
