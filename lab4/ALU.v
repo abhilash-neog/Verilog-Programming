@@ -74,7 +74,7 @@ module bit8_2to1mux(out,sel,in1,in2);
 input [7:0] in1,in2;   
 output [7:0] out;   
 input sel;   
-genvar j;  //this is the variable that is be used in the generate //block. Don't use integer;   
+genvar j;   
 generate  for (j=0; j<8;j=j+1) begin: mux_loop  
 //mux_loop is the name of the loop   
 mux2to1 m1(out[j],sel,in1[j],in2[j]);   
@@ -95,9 +95,9 @@ endgenerate
 endmodule
 
 module ALU(a,b,Binvert,Carryin,Operation,Result,CarryOut);
-input [31:0]a,b;
+input [31:0] a,b;
 input Binvert,Carryin;
-input [1:0]Operation;
+input [1:0] Operation;
 output [31:0] Result;
 output CarryOut;
 wire [31:0] nb;
@@ -130,7 +130,7 @@ wire CarryOut;
 ALU al(a,b,Binvert,Carryin,Operation,Result,CarryOut);
 initial
 begin
-$monitor(,$time,"a1 = %32b b1=%32b Binv=%b Op=%8b res=%b cout=%b",a,b,Binvert,Carryin,Operation,Result,CarryOut);
+$monitor(,$time,"a1 = %b b1=%b Binv=%b Op=%b res=%b cout=%b",a,b,Binvert,Carryin,Operation,Result,CarryOut);
 end
 initial
 begin
