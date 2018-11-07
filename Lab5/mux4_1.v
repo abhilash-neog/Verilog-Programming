@@ -1,4 +1,4 @@
-module mux4to1(out,sel,in1,in2,in3,in4);   
+module mux1bit(out,sel,in1,in2,in3,in4);   
 input in1,in2,in3,in4;
 input [1:0] sel;
 output out;   
@@ -18,7 +18,7 @@ output [31:0] regData;
 input [1:0] reg_no;
 genvar j;
 generate  for (j=0; j<32;j=j+1) begin: mux_loop 
-mux4to1 b2(out[j],reg_no,q1[j],q2[j],q3[j],q4[j]);
+mux1bit b2(regData[j],reg_no,q1[j],q2[j],q3[j],q4[j]);
 end
 endgenerate
 endmodule
@@ -26,14 +26,14 @@ endmodule
 module decoder2_4(register,reg_no);
 
 input [1:0]reg_no; 
-output d0,d1,d2,d3,d4,d5,d6,d7; 
-wire x0,y0,z0; 
+output [3:0]register; 
+wire x0,y0; 
 not n1(x0,reg_no[0]); 
 not n2(y0,reg_no[1]);
 
-and a0(d0,y0,x0); 
-and a1(d1,y0,reg_no[0]); 
-and a2(d2,reg_no[1],x0); 
-and a3(d3,reg_no[0],reg_no[1]);
+and a0(register[0],y0,x0); 
+and a1(register[1],y0,reg_no[0]); 
+and a2(register[2],reg_no[1],x0); 
+and a3(register[3],reg_no[0],reg_no[1]);
 
 endmodule
