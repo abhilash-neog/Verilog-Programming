@@ -8,7 +8,6 @@ and (a2,not_sel,in1);
 or(out,a1,a2); 
 endmodule
 
-
 module bit8_2to1mux(out,sel,in1,in2);   
 input [7:0] in1,in2;   
 output [7:0] out;   

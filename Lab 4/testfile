@@ -1,0 +1,190 @@
+#! c:/iverilog-x64/bin/vvp
+:ivl_version "10.1 (stable)" "(v10_1_1)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0000000002537f40 .scope module, "tb" "tb" 2 27;
+ .timescale 0 0;
+v00000000025ad820_0 .net "ALUOp", 1 0, L_00000000025ac4c0;  1 drivers
+v00000000025adaa0_0 .var "Func", 5 0;
+v00000000025adbe0_0 .var "Op", 5 0;
+v00000000025aca60_0 .net "Operation", 2 0, L_00000000025acba0;  1 drivers
+L_00000000025ac4c0 .concat8 [ 1 1 0 0], L_00000000025afe50, L_00000000025b0160;
+S_00000000025347f0 .scope module, "ag" "ALUOp_generate" 2 33, 2 1 0, S_0000000002537f40;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "ALUOp1"
+    .port_info 1 /OUTPUT 1 "ALUOp2"
+    .port_info 2 /INPUT 6 "Op"
+L_00000000025aeb70 .functor NOT 1, L_00000000025acec0, C4<0>, C4<0>, C4<0>;
+L_00000000025ae940 .functor NOT 1, L_00000000025acce0, C4<0>, C4<0>, C4<0>;
+L_00000000025ae860 .functor AND 1, L_00000000025aeb70, L_00000000025ae940, C4<1>, C4<1>;
+L_00000000025ae9b0 .functor NOT 1, L_00000000025adc80, C4<0>, C4<0>, C4<0>;
+L_00000000025aebe0 .functor AND 1, L_00000000025ae860, L_00000000025ae9b0, C4<1>, C4<1>;
+L_00000000025aec50 .functor NOT 1, L_00000000025ac920, C4<0>, C4<0>, C4<0>;
+L_00000000025aecc0 .functor AND 1, L_00000000025aebe0, L_00000000025aec50, C4<1>, C4<1>;
+L_00000000025ae5c0 .functor NOT 1, L_00000000025ad280, C4<0>, C4<0>, C4<0>;
+L_00000000025ae8d0 .functor AND 1, L_00000000025aecc0, L_00000000025ae5c0, C4<1>, C4<1>;
+L_00000000025ae630 .functor NOT 1, L_00000000025ad460, C4<0>, C4<0>, C4<0>;
+L_00000000025aeb00 .functor AND 1, L_00000000025ae8d0, L_00000000025ae630, C4<1>, C4<1>;
+L_00000000025ae6a0 .functor NOT 1, L_00000000025ac2e0, C4<0>, C4<0>, C4<0>;
+L_00000000025aea20 .functor NOT 1, L_00000000025acb00, C4<0>, C4<0>, C4<0>;
+L_00000000025ae710 .functor AND 1, L_00000000025ae6a0, L_00000000025aea20, C4<1>, C4<1>;
+L_00000000025ae780 .functor NOT 1, L_00000000025ac420, C4<0>, C4<0>, C4<0>;
+L_00000000025ae7f0 .functor AND 1, L_00000000025ae710, L_00000000025ae780, C4<1>, C4<1>;
+L_00000000025aea90 .functor AND 1, L_00000000025ae7f0, L_00000000025ac6a0, C4<1>, C4<1>;
+L_00000000025b0320 .functor NOT 1, L_00000000025addc0, C4<0>, C4<0>, C4<0>;
+L_00000000025b0b00 .functor AND 1, L_00000000025aea90, L_00000000025b0320, C4<1>, C4<1>;
+L_00000000025b00f0 .functor NOT 1, L_00000000025ad320, C4<0>, C4<0>, C4<0>;
+L_00000000025b0470 .functor AND 1, L_00000000025b0b00, L_00000000025b00f0, C4<1>, C4<1>;
+L_00000000025afe50 .functor BUFZ 1, L_00000000025aeb00, C4<0>, C4<0>, C4<0>;
+L_00000000025b0160 .functor BUFZ 1, L_00000000025b0470, C4<0>, C4<0>, C4<0>;
+v000000000254d1d0_0 .net "ALUOp1", 0 0, L_00000000025afe50;  1 drivers
+v000000000254c190_0 .net "ALUOp2", 0 0, L_00000000025b0160;  1 drivers
+v000000000254ba10_0 .net "Op", 5 0, v00000000025adbe0_0;  1 drivers
+v000000000254c230_0 .net "Rformat", 0 0, L_00000000025aeb00;  1 drivers
+v000000000254ce10_0 .net *"_s1", 0 0, L_00000000025acec0;  1 drivers
+v000000000254bdd0_0 .net *"_s11", 0 0, L_00000000025adc80;  1 drivers
+v000000000254c9b0_0 .net *"_s12", 0 0, L_00000000025ae9b0;  1 drivers
+v000000000254ceb0_0 .net *"_s14", 0 0, L_00000000025aebe0;  1 drivers
+v000000000254c410_0 .net *"_s17", 0 0, L_00000000025ac920;  1 drivers
+v000000000254d3b0_0 .net *"_s18", 0 0, L_00000000025aec50;  1 drivers
+v000000000254d270_0 .net *"_s2", 0 0, L_00000000025aeb70;  1 drivers
+v000000000254c550_0 .net *"_s20", 0 0, L_00000000025aecc0;  1 drivers
+v000000000254c370_0 .net *"_s23", 0 0, L_00000000025ad280;  1 drivers
+v000000000254bab0_0 .net *"_s24", 0 0, L_00000000025ae5c0;  1 drivers
+v000000000254d4f0_0 .net *"_s26", 0 0, L_00000000025ae8d0;  1 drivers
+v000000000254d450_0 .net *"_s29", 0 0, L_00000000025ad460;  1 drivers
+v000000000254c690_0 .net *"_s30", 0 0, L_00000000025ae630;  1 drivers
+v000000000254d310_0 .net *"_s35", 0 0, L_00000000025ac2e0;  1 drivers
+v000000000254d590_0 .net *"_s36", 0 0, L_00000000025ae6a0;  1 drivers
+v000000000254be70_0 .net *"_s39", 0 0, L_00000000025acb00;  1 drivers
+v000000000254ccd0_0 .net *"_s40", 0 0, L_00000000025aea20;  1 drivers
+v000000000254c730_0 .net *"_s42", 0 0, L_00000000025ae710;  1 drivers
+v000000000254bf10_0 .net *"_s45", 0 0, L_00000000025ac420;  1 drivers
+v000000000254c7d0_0 .net *"_s46", 0 0, L_00000000025ae780;  1 drivers
+v000000000254c870_0 .net *"_s48", 0 0, L_00000000025ae7f0;  1 drivers
+v000000000254c910_0 .net *"_s5", 0 0, L_00000000025acce0;  1 drivers
+v000000000254ca50_0 .net *"_s51", 0 0, L_00000000025ac6a0;  1 drivers
+v000000000254cb90_0 .net *"_s52", 0 0, L_00000000025aea90;  1 drivers
+v000000000254b6f0_0 .net *"_s55", 0 0, L_00000000025addc0;  1 drivers
+v000000000254cd70_0 .net *"_s56", 0 0, L_00000000025b0320;  1 drivers
+v000000000254cf50_0 .net *"_s58", 0 0, L_00000000025b0b00;  1 drivers
+v000000000254cff0_0 .net *"_s6", 0 0, L_00000000025ae940;  1 drivers
+v00000000025ad140_0 .net *"_s61", 0 0, L_00000000025ad320;  1 drivers
+v00000000025acd80_0 .net *"_s62", 0 0, L_00000000025b00f0;  1 drivers
+v00000000025adfa0_0 .net *"_s8", 0 0, L_00000000025ae860;  1 drivers
+v00000000025ac240_0 .net "beq", 0 0, L_00000000025b0470;  1 drivers
+L_00000000025acec0 .part v00000000025adbe0_0, 0, 1;
+L_00000000025acce0 .part v00000000025adbe0_0, 1, 1;
+L_00000000025adc80 .part v00000000025adbe0_0, 2, 1;
+L_00000000025ac920 .part v00000000025adbe0_0, 3, 1;
+L_00000000025ad280 .part v00000000025adbe0_0, 4, 1;
+L_00000000025ad460 .part v00000000025adbe0_0, 5, 1;
+L_00000000025ac2e0 .part v00000000025adbe0_0, 0, 1;
+L_00000000025acb00 .part v00000000025adbe0_0, 1, 1;
+L_00000000025ac420 .part v00000000025adbe0_0, 2, 1;
+L_00000000025ac6a0 .part v00000000025adbe0_0, 3, 1;
+L_00000000025addc0 .part v00000000025adbe0_0, 4, 1;
+L_00000000025ad320 .part v00000000025adbe0_0, 5, 1;
+S_0000000002551e10 .scope module, "al" "aluControlLogic" 2 34, 2 12 0, S_0000000002537f40;
+ .timescale 0 0;
+    .port_info 0 /INPUT 6 "Func"
+    .port_info 1 /INPUT 2 "ALUOp"
+    .port_info 2 /OUTPUT 3 "Operation"
+L_00000000025afec0 .functor OR 1, L_00000000025ade60, L_00000000025ad0a0, C4<0>, C4<0>;
+L_00000000025b0780 .functor AND 1, L_00000000025afec0, L_00000000025adf00, C4<1>, C4<1>;
+L_00000000025b01d0 .functor AND 1, L_00000000025ae040, L_00000000025ac560, C4<1>, C4<1>;
+L_00000000025aff30 .functor NOT 1, L_00000000025ac740, C4<0>, C4<0>, C4<0>;
+L_00000000025b0240 .functor NOT 1, L_00000000025ac7e0, C4<0>, C4<0>, C4<0>;
+L_00000000025b0b70 .functor OR 1, L_00000000025aff30, L_00000000025b0240, C4<0>, C4<0>;
+L_00000000025b0860 .functor OR 1, L_00000000025b01d0, L_00000000025ad3c0, C4<0>, C4<0>;
+v00000000025ac1a0_0 .net "ALUOp", 1 0, L_00000000025ac4c0;  alias, 1 drivers
+v00000000025ad000_0 .net "Func", 5 0, v00000000025adaa0_0;  1 drivers
+v00000000025ac380_0 .net "Operation", 2 0, L_00000000025acba0;  alias, 1 drivers
+v00000000025ad5a0_0 .net *"_s1", 0 0, L_00000000025ade60;  1 drivers
+v00000000025ac9c0_0 .net *"_s10", 0 0, L_00000000025b0780;  1 drivers
+v00000000025add20_0 .net *"_s13", 0 0, L_00000000025ae040;  1 drivers
+v00000000025ada00_0 .net *"_s15", 0 0, L_00000000025ac560;  1 drivers
+v00000000025ad500_0 .net *"_s19", 0 0, L_00000000025ac740;  1 drivers
+v00000000025ac600_0 .net *"_s23", 0 0, L_00000000025ac7e0;  1 drivers
+v00000000025ac880_0 .net *"_s28", 0 0, L_00000000025b0b70;  1 drivers
+v00000000025ad8c0_0 .net *"_s3", 0 0, L_00000000025ad0a0;  1 drivers
+v00000000025ad640_0 .net *"_s34", 0 0, L_00000000025ad3c0;  1 drivers
+v00000000025ace20_0 .net *"_s35", 0 0, L_00000000025b0860;  1 drivers
+v00000000025ad960_0 .net *"_s9", 0 0, L_00000000025adf00;  1 drivers
+v00000000025ad6e0_0 .net "f1", 0 0, L_00000000025afec0;  1 drivers
+v00000000025ad780_0 .net "f3", 0 0, L_00000000025b01d0;  1 drivers
+v00000000025ad1e0_0 .net "negAlu", 0 0, L_00000000025aff30;  1 drivers
+v00000000025adb40_0 .net "negOp", 0 0, L_00000000025b0240;  1 drivers
+L_00000000025ade60 .part v00000000025adaa0_0, 0, 1;
+L_00000000025ad0a0 .part v00000000025adaa0_0, 3, 1;
+L_00000000025adf00 .part L_00000000025ac4c0, 1, 1;
+L_00000000025ae040 .part v00000000025adaa0_0, 1, 1;
+L_00000000025ac560 .part L_00000000025ac4c0, 1, 1;
+L_00000000025ac740 .part L_00000000025ac4c0, 1, 1;
+L_00000000025ac7e0 .part v00000000025adaa0_0, 2, 1;
+L_00000000025acba0 .concat8 [ 1 1 1 0], L_00000000025b0780, L_00000000025b0b70, L_00000000025b0860;
+L_00000000025ad3c0 .part L_00000000025ac4c0, 0, 1;
+    .scope S_0000000002537f40;
+T_0 ;
+    %vpi_call 2 37 "$monitor", " ", $time, "ALUOp1=%b ALUOp0=%b Func=%b Operation=%b", &PV<v00000000025ad820_0, 1, 1>, &PV<v00000000025ad820_0, 0, 1>, v00000000025adaa0_0, v00000000025aca60_0 {0 0 0};
+    %end;
+    .thread T_0;
+    .scope S_0000000002537f40;
+T_1 ;
+    %pushi/vec4 63, 0, 6;
+    %store/vec4 v00000000025adbe0_0, 0, 6;
+    %pushi/vec4 4, 0, 6;
+    %store/vec4 v00000000025adaa0_0, 0, 6;
+    %delay 100, 0;
+    %pushi/vec4 63, 0, 6;
+    %store/vec4 v00000000025adbe0_0, 0, 6;
+    %pushi/vec4 10, 0, 6;
+    %store/vec4 v00000000025adaa0_0, 0, 6;
+    %delay 200, 0;
+    %pushi/vec4 0, 0, 6;
+    %store/vec4 v00000000025adbe0_0, 0, 6;
+    %pushi/vec4 5, 0, 6;
+    %store/vec4 v00000000025adaa0_0, 0, 6;
+    %delay 300, 0;
+    %pushi/vec4 0, 0, 6;
+    %store/vec4 v00000000025adbe0_0, 0, 6;
+    %pushi/vec4 4, 0, 6;
+    %store/vec4 v00000000025adaa0_0, 0, 6;
+    %delay 400, 0;
+    %pushi/vec4 4, 0, 6;
+    %store/vec4 v00000000025adbe0_0, 0, 6;
+    %pushi/vec4 0, 0, 6;
+    %store/vec4 v00000000025adaa0_0, 0, 6;
+    %delay 500, 0;
+    %pushi/vec4 4, 0, 6;
+    %store/vec4 v00000000025adbe0_0, 0, 6;
+    %pushi/vec4 2, 0, 6;
+    %store/vec4 v00000000025adaa0_0, 0, 6;
+    %delay 600, 0;
+    %pushi/vec4 4, 0, 6;
+    %store/vec4 v00000000025adbe0_0, 0, 6;
+    %pushi/vec4 4, 0, 6;
+    %store/vec4 v00000000025adaa0_0, 0, 6;
+    %delay 700, 0;
+    %pushi/vec4 4, 0, 6;
+    %store/vec4 v00000000025adbe0_0, 0, 6;
+    %pushi/vec4 5, 0, 6;
+    %store/vec4 v00000000025adaa0_0, 0, 6;
+    %delay 800, 0;
+    %pushi/vec4 4, 0, 6;
+    %store/vec4 v00000000025adbe0_0, 0, 6;
+    %pushi/vec4 10, 0, 6;
+    %store/vec4 v00000000025adaa0_0, 0, 6;
+    %delay 900, 0;
+    %vpi_call 2 52 "$finish" {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "aluControlLogic.v";
