@@ -49,6 +49,10 @@ begin
 #1  reset = 1'b0;
 #20 reset=1'b1; 
 #20 d=32'hAFAFAFAF; 
+#40 reset = 1'b0;
+#80 reset = 1'b1;
+#120 reset = 1'b0;
+#150 reset = 1'b1;
 #200 $finish; 
 end 
 endmodule 
