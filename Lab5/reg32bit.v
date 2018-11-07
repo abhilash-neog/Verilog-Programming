@@ -34,7 +34,7 @@ always @(clk)
 
 initial 
 begin
-$monitor(,$time,"clk=%b out=%b inp=%b reset=%b",clk,d,q,reset);
+$monitor(,$time,"clk=%b out=%b inp=%b reset=%b",clk,q,d,reset);
 end
 
 initial
