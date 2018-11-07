@@ -37,6 +37,12 @@ begin
 $monitor(,$time,"clk=%b out=%b inp=%b reset=%b",clk,d,q,reset);
 end
 
+initial
+begin
+$dumpfile("reg32bit.vcd");
+$dumpvars();
+end
+
 initial 
 begin 
 #0  clk = 1'b1; reset = 1'b1; d = 32'hFFFFFFFF;
