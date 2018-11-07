@@ -64,7 +64,7 @@ module reg_32bit(q,d,clk,reset);
  endgenerate
 endmodule
 
-module RegFile(clk,reset,ReadReg1,ReadReg2,WriteData,WriteReg,RegWrite,ReadData1,ReadData2);
+module RegFile_4bit(clk,reset,ReadReg1,ReadReg2,WriteData,WriteReg,RegWrite,ReadData1,ReadData2);
 
 input clk,reset,RegWrite;
 input [1:0] ReadReg1,ReadReg2,WriteReg;
@@ -89,5 +89,39 @@ reg_32bit rb3(regdata4,WriteData,w3,reset);
 mux4_1 m1(ReadData1,regdata1,regdata2,regdata3,regdata4,ReadReg1);
 mux4_1 m2(ReadData2,regdata1,regdata2,regdata3,regdata4,ReadReg2);
 
-endmodule;
+endmodule
+
+module tb4Bit;
+  reg clk, reset, RegWrite;
+  reg [1:0] ReadReg1, ReadReg2, WriteReg;
+  reg [31:0]  WriteData;
+  wire  [31:0]  ReadData1, ReadData2;
+  RegFile_4bit rf4(clk,reset,ReadReg1,ReadReg2,WriteData,WriteReg,RegWrite,ReadData1,ReadData2);
+  
+  initial begin
+    $monitor(,$time, " reset = %b, RegWrite = %b, ReadReg1 = %b, ReadReg2 = %b, WriteReg = %b, WriteData = %b, ReadData1 = %b, ReadData2 = %b.", reset, RegWrite, ReadReg1, ReadReg2, WriteReg, WriteData, ReadData1, ReadData2);
+    end
+    
+    initial
+    begin    
+    #0  clk = 1'b1; ReadReg1 = 2'b00; ReadReg2 = 2'b01; reset = 1'b1;WriteData = 32'hF0F0F0F0; RegWrite = 1'b1; WriteReg = 2'b11;
+    
+    #2  reset = 1'b0;
+    
+    #10 reset = 1'b1; RegWrite = 1'b1;  WriteData = 32'hF0F0F0F0; WriteReg = 2'b00;
+    
+    #10 RegWrite = 1'b1;  WriteData = 32'hF8F8F8F8; WriteReg = 2'b01;
+    
+    #10 RegWrite = 1'b1;  WriteData = 32'hFAFAFAFA; WriteReg = 2'b10;
+    
+    #10 RegWrite = 1'b1;  WriteData = 32'hFFFFFFFF; WriteReg = 2'b11;
+    
+    #10 RegWrite = 1'b0;
+    #10 ReadReg1 = 2'b10; ReadReg2 = 2'b11;
+    #10 ReadReg1 = 2'b01; ReadReg2 = 2'b10;
+    #10 $finish;
+  end
+  always
+    #5  clk = ~clk;
+endmodule
 
