@@ -2,10 +2,10 @@ module ANDarray (RegDst,ALUSrc, MemtoReg, RegWrite, MemRead, MemWrite,Branch,ALU
 input [5:0] Op; 
 output RegDst,ALUSrc,MemtoReg, RegWrite, MemRead, MemWrite,Branch,ALUOp1,ALUOp2;  
 wire Rformat, lw,sw,beq;  
-assign Rformat= (~Op[0])& (~Op[1])& (~Op[2])& (~Op[3])& (~Op[4])& (~Op[5]);
-assign lw = (Op[0])& (~Op[1])& (~Op[2])& (~Op[3])& (Op[4])& (Op[5]);
-assign sw = (Op[0])& (~Op[1])& (Op[2])& (~Op[3])& (Op[4])& (Op[5]);
-assign beq = (~Op[0])& (~Op[1])& (~Op[2])& (Op[3])& (~Op[4])& (~Op[5]);
+assign Rformat= (~Op[5])& (~Op[4])& (~Op[3])& (~Op[2])& (~Op[1])& (~Op[0]);
+assign lw = (Op[5])& (~Op[4])& (~Op[3])& (~Op[2])& (Op[1])& (Op[0]);
+assign sw = (Op[5])& (~Op[4])& (Op[3])& (~Op[2])& (Op[1])& (Op[0]);
+assign beq = (~Op[5])& (~Op[4])& (~Op[3])& (Op[2])& (~Op[1])& (~Op[0]);
 assign RegDst=Rformat;
 assign ALUSrc = lw | sw;
 assign MemRead = lw;
