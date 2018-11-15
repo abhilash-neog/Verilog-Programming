@@ -125,3 +125,7 @@ module tb4Bit;
     #5  clk = ~clk;
 endmodule
 
+//for 32 bit MIPS, require a 5-32 decoder, 32-1 mux,generate clk
+//signals for 32 registers, instantiate reg32 32 times to store 
+//data in 32 registers
+
