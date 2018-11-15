@@ -52,7 +52,25 @@ endmodule
 module tb;
 reg MemRead,MemWrite, clk;
 reg [31:0] ReadAddress,WriteAddress,WriteData;
-wire [31:0] WriteData;
+wire [31:0] ReadData;
 Data_Memory dm(clk, MemRead, ReadAddress, ReadData, MemWrite, WriteAddress, WriteData);
+
+
+initial
+begin
+repeat(100)
+#10 clk<=~clk;
+end
+
+initial 
+begin
+$monitor(,$time,"MemRead=%b ReadAddress=%b ReadData=%b MemWrite=%b  WriteAddress=%b WriteData=%b",MemRead, ReadAddress, ReadData, MemWrite, WriteAddress, WriteData);
+#0 clk = 1'b1;MemWrite = 1'b1;MemRead=1'b0;WriteData = 32'hfafafafa;WriteAddress= 32'h0000;
+//#10 MemWrite = 1'b1;MemRead=1'b0;WriteData = 32'd12;WriteAddress= 32'd27;
+#20 MemWrite = 1'b0;MemRead=1'b1;ReadAddress= 32'h0000;
+end
+
+endmodule
+
 
 
