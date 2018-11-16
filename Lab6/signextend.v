@@ -16,4 +16,4 @@ module TBSignExtender;
     #100  in = 16'h9999;
     #200  $finish;
   end
-endmodulefc b hy  p
+endmodule
