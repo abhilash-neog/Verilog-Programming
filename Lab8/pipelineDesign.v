@@ -57,7 +57,7 @@ module testbench;
     $monitor($time, " A = %b, B = %b, Function Code = %b, OpCode = %b, AOut = %b, BOut = %b, OpOut = %b, X = %b, Carry = %b, XOut = %b, Output = %b.", A, B, FuncCode, mod.opcode, mod.AOut, mod.BOut, mod.opout, mod.X, mod.cout, mod.XOut, result);
     #0  clock = 1'b1;
     #4  A = 4'b0101; B = 4'b1110;  FuncCode = 8'b10000000;
-    #20 FuncCode = 8'b01000000;
+    #0.3 FuncCode = 8'b01000000;
     #20 FuncCode = 8'b00100000;
     #20 FuncCode = 8'b00010000;
     #20 FuncCode = 8'b00001000;
