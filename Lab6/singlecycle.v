@@ -1,4 +1,4 @@
-
+'include ALU.v
 module Instruction_Memory(Inst, PC, clock);
 	input[31:0] PC;
 	input clock;
@@ -215,8 +215,14 @@ input clk,reset,pc;
 output [31:0] aluout;
 wire [31:0] instruction;
 reg [31:0] pcnew;//check
+input [1:0] ReadReg1,ReadReg2,WriteReg;
+input [31:0] WriteData;
+output [31:0] ReadData1,ReadData2;
 wire cout;
+
 Instruction_Memory im(instruction,pc,clk);
 adder ad(cout,pcnew,pc,32'd4,0);
 regfile reg(ReadData1, ReadData2, Clock, Reset, RegWrite, ReadReg1, ReadReg2, WriteRegNo, WriteData);
+ALU al();
+
 
