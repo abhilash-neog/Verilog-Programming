@@ -18,7 +18,7 @@ case(inp)
 end 
 endmodule
 
-module tb;
+module tb1;
 reg [7:0] in;
 wire [2:0] out;
 

@@ -28,7 +28,7 @@ else if(ctrl==3'b111)
 end
 endmodule
 
-module tb;
+module tb2;
 reg [3:0] A,B;
 reg [2:0] ctrl;
 wire [3:0] X;
