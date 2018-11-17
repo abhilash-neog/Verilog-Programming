@@ -1,7 +1,7 @@
 `include "encoder.v"
 `include "alu.v"
 `include "parityGenerator.v"
-
+`Wtimescale 1s/1ns
 
 module pipelinereg1(clk, opcode, A, B, opout, AOut, BOut);
   input [2:0] opcode;

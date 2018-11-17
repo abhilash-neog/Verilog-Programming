@@ -1,3 +1,5 @@
+
+
 module alu(ctrl,A,B,X,cout);
 input [2:0] ctrl;
 input [3:0] A,B;
