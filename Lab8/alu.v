@@ -1,4 +1,4 @@
-
+`timescale 1ns/1ps
 
 module alu(ctrl,A,B,X,cout);
 input [2:0] ctrl;

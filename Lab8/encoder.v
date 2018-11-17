@@ -1,3 +1,4 @@
+`timescale 1ns/1ps
 module encoder(inp,out);
 input [7:0] inp;
 output [2:0] out;
