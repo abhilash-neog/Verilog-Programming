@@ -1,13 +1,10 @@
-module bcdgray(a[3:0],f[3:0]);
+module bcdgray(a,f);
  input [3:0]a;
  output [3:0]f;
  assign f[3] = a[3];
  xor x1(f[2],a[3],a[2]);
- //assign f[1] = l;
  xor x2(f[1],a[2],a[1]);
- //assign f[2] = m;
  xor x3(f[0],a[1],a[0]);
- //assign f[3] = n;
 endmodule
 
 module testbench; 
